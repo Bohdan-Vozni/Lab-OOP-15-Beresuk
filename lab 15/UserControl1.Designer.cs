@@ -92,7 +92,7 @@
             Controls.Add(textBox_name);
             Controls.Add(label_name);
             Name = "UserControl_Name";
-            Size = new System.Drawing.Size(469, 460);
+            Size = new System.Drawing.Size(487, 460);
             Load += UserControl_Name_Load;
             ResumeLayout(false);
             PerformLayout();

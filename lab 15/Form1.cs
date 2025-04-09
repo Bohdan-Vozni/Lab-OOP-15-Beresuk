@@ -33,88 +33,57 @@ namespace lab_15
 
         private void button_delete_Click(object sender, EventArgs e)
         {
-            textBox_side.Text = String.Empty;
-            textBox_small_basis.Text = String.Empty;
-            textBox_large_basis.Text = String.Empty;
+            textBox_harvest1.Text = String.Empty;
+            textBox_harvest2.Text = String.Empty;
+            textBox_harvest3.Text = String.Empty;
+            textBox_area1.Text = String.Empty;
+            textBox_area2.Text = String.Empty;
+            textBox_area3.Text = String.Empty;
             label_result.Visible = false;
         }
 
         private void button_area_Click(object sender, EventArgs e)
         {
-            float side = 0;
-            float small_basis = 0;
-            float large_basis = 0;
+            float harvest1 = 0;
+            float harvest2 = 0;
+            float harvest3 = 0;
+
+            float area1 = 0;
+            float area2 = 0;
+            float area3 = 0;
+
             double result = 0;
 
-            string str_side = textBox_side.Text;
-            string str_small_basis = textBox_small_basis.Text;
-            string str_large_basis = textBox_large_basis.Text;
+            string str_harvest1 = textBox_harvest1.Text;
+            string str_harvest2 = textBox_harvest2.Text;
+            string str_harvest3 = textBox_harvest3.Text;
 
-            if (!float.TryParse(str_side, out side)
-                || !float.TryParse(str_small_basis, out small_basis)
-                || !float.TryParse(str_large_basis, out large_basis)
+            string str_area1 = textBox_area1.Text;
+            string str_area2 = textBox_area2.Text;
+            string str_area3 = textBox_area3.Text;
+            
+
+            if (   !float.TryParse(str_harvest1, out harvest1)
+                || !float.TryParse(str_harvest2, out harvest2)
+                || !float.TryParse(str_harvest3, out harvest3)
+                || !float.TryParse(str_area1, out area1)
+                || !float.TryParse(str_area2, out area2)
+                || !float.TryParse(str_area3, out area3)
                 )
             {
-                MessageBox.Show($"Неправильно введений текст {str_small_basis}");
+                MessageBox.Show($"Неправильно введений текст {str_harvest2}");
                 button_delete_Click(null, EventArgs.Empty);
                 return;
             }
             else
             {
-                if (large_basis < small_basis + 2 * side)
-                {
-                    double h = Math.Sqrt(Math.Pow(side, 2) - Math.Pow(((large_basis - small_basis) / 2), 2));
-                    result = ((large_basis + small_basis) / 2) * h;
-                    label_result.Visible = true;
-                    label_result.Text = $"Площа: {result:F3}";
-                }
-                else
-                {
-                    MessageBox.Show($"не існує такої трапеції");
-                    button_delete_Click(null, EventArgs.Empty);
-                    return;
-                }
+                
             }
 
 
         }
 
-        private void button_perimeter_Click(object sender, EventArgs e)
-        {
-            float side = 0;
-            float small_basis = 0;
-            float large_basis = 0;
-            double result = 0;
-
-            string str_side = textBox_side.Text;
-            string str_small_basis = textBox_small_basis.Text;
-            string str_large_basis = textBox_large_basis.Text;
-
-            if (!float.TryParse(str_side, out side)
-                || !float.TryParse(str_small_basis, out small_basis)
-                || !float.TryParse(str_large_basis, out large_basis)
-                )
-            {
-                MessageBox.Show($"Неправильно введений текст {str_small_basis}");
-                button_delete_Click(null, EventArgs.Empty);
-                return;
-            }
-            else
-            {
-                if (large_basis < small_basis + 2 * side)
-                {
-                    result = 2 * side + small_basis + large_basis;
-                    label_result.Visible = true;
-                    label_result.Text = $"Периметер: {result}";
-                }
-                else
-                {
-                    MessageBox.Show($"не існує такої трапеції");
-                    button_delete_Click(null, EventArgs.Empty);
-                    return;
-                }                
-            }
-        }
+        
 
         private void button_swichForm_Click(object sender, EventArgs e)
         {
@@ -122,5 +91,7 @@ namespace lab_15
             fr2.Show();
             Hide();
         }
+
+       
     }
 }
