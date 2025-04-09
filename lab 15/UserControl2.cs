@@ -14,7 +14,7 @@ namespace lab_15
 {
     public partial class UserControl_String : UserControl
     {
-        internal string path = @"D:\visual_studio_project\2_course\2_term\OOP\lab_15\File1.txt";
+        internal string path = @"D:\NUBIP\2_course\2_term\OOP\Program\Lab15\File1.txt";
         public UserControl_String()
         {
             InitializeComponent();

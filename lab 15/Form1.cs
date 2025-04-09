@@ -28,7 +28,11 @@ namespace lab_15
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            label_resultHarvest.Visible = false;
+            label_middleHarvest1.Visible = false;
+            label_middleHarvest2.Visible = false;
+            label_middleHarvest3.Visible = false;
+            laberl_resultHarvestGeneral.Visible = false;
         }
 
         private void button_delete_Click(object sender, EventArgs e)
@@ -40,6 +44,12 @@ namespace lab_15
             textBox_area2.Text = String.Empty;
             textBox_area3.Text = String.Empty;
             label_result.Visible = false;
+
+            label_resultHarvest.Visible = false;
+            label_middleHarvest1.Visible = false;
+            label_middleHarvest2.Visible = false;
+            label_middleHarvest3.Visible = false;
+            laberl_resultHarvestGeneral.Visible = false;
         }
 
         private void button_area_Click(object sender, EventArgs e)
@@ -77,7 +87,34 @@ namespace lab_15
             }
             else
             {
-                
+                float.TryParse(textBox_harvest1.Text, out float covHarvest1);
+                float.TryParse(textBox_area1.Text, out float covArea1);
+
+                label_middleHarvest1.Text = $"Вороржайність культури на першому полі: {covHarvest1 * covArea1}";
+
+                //////
+                float.TryParse(textBox_harvest2.Text, out float covHarvest2);
+                float.TryParse(textBox_area2.Text, out float covArea2);
+
+                label_middleHarvest2.Text = $"Вороржайність культури на другому полі: {covHarvest2 * covArea2}";
+                ///////
+                ///
+                float.TryParse(textBox_harvest3.Text, out float covHarvest3);
+                float.TryParse(textBox_area3.Text, out float covArea3);
+
+                label_middleHarvest3.Text = $"Вороржайність культури на третьому полі: {covHarvest3 * covArea3}";
+
+                //////
+
+                laberl_resultHarvestGeneral.Text = $"Загальна врожайність культури на трьох полях: {Math.Round(((double) ((covHarvest1 * covArea1 + covHarvest2 * covArea2 + covHarvest3 * covArea3)/3.0)),2)}";
+
+
+
+                label_resultHarvest.Visible = true;
+                label_middleHarvest1.Visible = true;
+                label_middleHarvest2.Visible = true;
+                label_middleHarvest3.Visible = true;
+                laberl_resultHarvestGeneral.Visible = true;
             }
 
 
